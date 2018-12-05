@@ -16,11 +16,13 @@ public class RandomHelloController {
             "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
     @RequestMapping("/randomhello")
-    public String randomhello(Model model) {
+    public String randomhello(Model model, @RequestParam(defaultValue = "World")String name) {
         Random random = new Random();
+        model.addAttribute("name", name);
         model.addAttribute("hello", greetings[random.nextInt(greetings.length)]);
-        model.addAttribute("fontColor","rgb("+ random.nextInt(256)+","+random.nextInt(256)+","+random.nextInt(256)+ ")");
-        model.addAttribute("fontSize", random.nextInt(90)+20);
+        model.addAttribute("fontColor", "rgb(" + random.nextInt(256) +
+                "," + random.nextInt(256) + "," + random.nextInt(256) + ")");
+        model.addAttribute("fontSize", random.nextInt(90) + 20);
         return "randomhello";
     }
 }
