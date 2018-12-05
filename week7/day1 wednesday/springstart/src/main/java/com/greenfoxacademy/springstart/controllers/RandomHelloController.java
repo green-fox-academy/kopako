@@ -17,7 +17,10 @@ public class RandomHelloController {
 
     @RequestMapping("/randomhello")
     public String randomhello(Model model) {
-        model.addAttribute("hello", greetings[new Random().nextInt(greetings.length)]);
+        Random random = new Random();
+        model.addAttribute("hello", greetings[random.nextInt(greetings.length)]);
+        model.addAttribute("fontColor","rgb("+ random.nextInt(256)+","+random.nextInt(256)+","+random.nextInt(256)+ ")");
+        model.addAttribute("fontSize", random.nextInt(90)+20);
         return "randomhello";
     }
 }
