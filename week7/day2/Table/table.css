@@ -1,0 +1,26 @@
+body {
+    background-color: cornflowerblue;
+}
+
+table {
+    width: 80%;
+    background-color: white;
+    border: 1px solid #333;
+    font-size: 200%;
+    border-radius: 8px;
+}
+
+th {
+    background-color: black;
+    color: white;
+    padding: 20px;
+
+}
+
+tr {
+    padding: 20px;
+}
+
+tr:nth-child(2n+1) {
+    background-color: lightgrey;
+}
