@@ -1,0 +1,37 @@
+body
+{
+  background-color: lightgray;
+  text-align: center;
+}
+form{
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+}
+input:focus{
+border-color: green;
+}
+
+input[type="text"],
+input[type="password"]{
+  display: block;
+  align-content: center;
+  width: 300px;
+  font-size: large;
+  padding: 2%;
+  border-radius: 5px;
+
+}
+
+input[type="submit"]{
+  width: 100px;
+  height: 40px;
+  background-color: rgb(40, 39, 43);
+  color:white;
+  border-radius: 40px;
+  border: none;
+  margin-bottom: 10px;
+
+}
+
+
