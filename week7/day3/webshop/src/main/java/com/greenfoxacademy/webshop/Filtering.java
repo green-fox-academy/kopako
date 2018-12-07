@@ -8,18 +8,19 @@ import java.util.List;
 public interface Filtering {
 
     //List only available
-    List<ShopItem> available();
+    List<ShopItem> available(List<ShopItem> items);
 
     //Order by the cheapest first
-    List<ShopItem> cheapestFirst();
+    List<ShopItem> cheapestFirst(List<ShopItem> items);
 
-    //List only those what contain "nike" in the name or description
-    List<ShopItem> containNike();
+    //List only those what contList<ShopItem> items);
+
+    List<ShopItem> containNike(List<ShopItem> items);
 
     //Show the average of the stock
-    List<ShopItem> average();
+    double average(List<ShopItem> items);
 
     //Show the most expensive available item's name
-    List<ShopItem> expensiveFirst();
+    List<ShopItem> expensiveFirst(List<ShopItem> items);
 
 }

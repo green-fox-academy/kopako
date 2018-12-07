@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>MY WEBSHOP</title>
+    <title>Contains Nike</title>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+
 </head>
 <body>
+
 <!-- #header -->
 <div id="header">
     <h1>MY WEBSHOP</h1>
@@ -18,7 +20,9 @@
         <li><a class="button_2" th:href="@{/cheapest-first}"><span class="btn_lbg"><span class="btn_rbg">CHEAPEST FIRST</span></span></a></li>
         <li><a class="button_2" th:href="@{/contains-nike}"><span class="btn_lbg"><span class="btn_rbg">CONTAINS NIKE</span></span></a></li>
         <li><a class="button_2" th:href="@{/average-stock}"><span class="btn_lbg"><span class="btn_rbg">AVAREGE STOCK</span></span></a></li>
-        <li><a class="button_2" th:href="@{/most-expensive}"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a></ul>
+        <li><a class="button_2" th:href="@{/most-expensive}"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a>
+        </li>
+    </ul>
 </div>
 <!-- / #menu -->
 <div id="container">
@@ -41,9 +45,9 @@
                     </thead>
                     <tbody>
                     <!--<tr th:if="${items.empty}">-->
-                        <!--<td colspan="2"> No Books Available</td>-->
+                    <!--<td colspan="2"> No Books Available</td>-->
                     <!--</tr>-->
-                    <tr th:each="item : ${items}">
+                    <tr th:each="item : ${i}">
                         <td><span th:text="${item.name}"> Name </span></td>
                         <td><span th:text="${item.description}"> Description </span></td>
                         <td><span th:text="${item.price}"> Description </span></td>
@@ -79,5 +83,7 @@
         </tbody>
     </table>
 </div>
+
+
 </body>
 </html>

@@ -2,70 +2,50 @@ package com.greenfoxacademy.webshop;
 
 import com.greenfoxacademy.webshop.pojo.ShopItem;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
 public class FilteringImpl implements Filtering {
-    List<ShopItem> items;
 
     public FilteringImpl() {
     }
 
-    public FilteringImpl(List<ShopItem> items) {
-        this.items = items;
-    }
 
-    public List<ShopItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<ShopItem> items) {
-        this.items = items;
-    }
 
     @Override
-    public List<ShopItem> available() {
+    public List<ShopItem> available(List<ShopItem> items) {
         return items.stream()
                 .filter(a -> a.getQuantityOfStock()>0)
                 .collect(toList());
     }
 
     @Override
-    public List<ShopItem> cheapestFirst() {
+    public List<ShopItem> cheapestFirst(List<ShopItem> items) {
         return items.stream()
-                .sorted(Comparator.comparing(o->o.getPrice()))
+                .sorted(Comparator.comparing(ShopItem::getPrice))
                 .collect(toList());
     }
 
     @Override
-    public List<ShopItem> containNike() {
+    public List<ShopItem> containNike(List<ShopItem> items) {
         return items.stream()
-                .filter(a->a.getDescription().contains("nike"))
+                .filter(a->a.getDescription().toLowerCase().contains("nike"))
                 .collect(toList());
     }
 
     @Override
-    public List<ShopItem> average() {
-//        TODO: what is average?
-        return null;
+    public double average(List<ShopItem> items) {
+        return items.stream()
+                .mapToDouble(ShopItem::getQuantityOfStock).sum()/items.size();
     }
 
     @Override
-    public List<ShopItem> expensiveFirst() {
+    public List<ShopItem> expensiveFirst(List<ShopItem> items) {
 
         return items.stream()
                 .sorted((a,b)-> (int) ((b.getPrice()-a.getPrice())*100))
                 .collect(toList());
-    }
-
-    @Override
-    public String toString() {
-        return "FilteringImpl{" +
-                "items=" + items +
-                '}';
     }
 }

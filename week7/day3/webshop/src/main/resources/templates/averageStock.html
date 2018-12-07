@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>MY WEBSHOP</title>
+    <title>Average Stock</title>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
+
 <!-- #header -->
 <div id="header">
     <h1>MY WEBSHOP</h1>
@@ -18,7 +19,9 @@
         <li><a class="button_2" th:href="@{/cheapest-first}"><span class="btn_lbg"><span class="btn_rbg">CHEAPEST FIRST</span></span></a></li>
         <li><a class="button_2" th:href="@{/contains-nike}"><span class="btn_lbg"><span class="btn_rbg">CONTAINS NIKE</span></span></a></li>
         <li><a class="button_2" th:href="@{/average-stock}"><span class="btn_lbg"><span class="btn_rbg">AVAREGE STOCK</span></span></a></li>
-        <li><a class="button_2" th:href="@{/most-expensive}"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a></ul>
+        <li><a class="button_2" th:href="@{/most-expensive}"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a>
+        </li>
+    </ul>
 </div>
 <!-- / #menu -->
 <div id="container">
@@ -30,27 +33,7 @@
             <div class="top-right-corner"></div>
             <div class="inside">
                 <p>
-                <table>
-                    <thead>
-                    <tr>
-                        <th> Name</th>
-                        <th> Description</th>
-                        <th> Price</th>
-                        <th> Quantity of Stock</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!--<tr th:if="${items.empty}">-->
-                        <!--<td colspan="2"> No Books Available</td>-->
-                    <!--</tr>-->
-                    <tr th:each="item : ${items}">
-                        <td><span th:text="${item.name}"> Name </span></td>
-                        <td><span th:text="${item.description}"> Description </span></td>
-                        <td><span th:text="${item.price}"> Description </span></td>
-                        <td><span th:text="${item.quantityOfStock}"> Description </span></td>
-                    </tr>
-                    </tbody>
-                </table>
+                The average of stock is <span th:text="${av}"/>
                 </p>
             </div>
             <div class="bottom-left-corner"></div>
@@ -79,5 +62,7 @@
         </tbody>
     </table>
 </div>
+
+
 </body>
 </html>
