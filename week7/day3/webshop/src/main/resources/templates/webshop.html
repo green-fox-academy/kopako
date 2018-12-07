@@ -14,20 +14,31 @@
 <!-- #menu -->
 <div id="menu">
     <ul>
-        <li><a class="button_2" th:href="@{/only-available}"><span class="btn_lbg"><span class="btn_rbg">ONLY AVAILABLE</span></span></a></li>
-        <li><a class="button_2" th:href="@{/cheapest-first}"><span class="btn_lbg"><span class="btn_rbg">CHEAPEST FIRST</span></span></a></li>
-        <li><a class="button_2" th:href="@{/contains-nike}"><span class="btn_lbg"><span class="btn_rbg">CONTAINS NIKE</span></span></a></li>
-        <li><a class="button_2" th:href="@{/average-stock}"><span class="btn_lbg"><span class="btn_rbg">AVAREGE STOCK</span></span></a></li>
-        <li><a class="button_2" th:href="@{/most-expensive}"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a></ul>
+        <li><a class="button_2" th:href="@{/only-available}"><span class="btn_lbg"><span
+                class="btn_rbg">ONLY AVAILABLE</span></span></a></li>
+        <li><a class="button_2" th:href="@{/cheapest-first}"><span class="btn_lbg"><span
+                class="btn_rbg">CHEAPEST FIRST</span></span></a></li>
+        <li><a class="button_2" th:href="@{/contains-nike}"><span class="btn_lbg"><span
+                class="btn_rbg">CONTAINS NIKE</span></span></a></li>
+
+
+        <li><a class="button_2" th:href="@{/average-stock}"><span class="btn_lbg"><span
+                class="btn_rbg">AVAREGE STOCK</span></span></a></li>
+        <li><a class="button_2" th:href="@{/most-expensive}"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a>
+    </ul>
 </div>
-<!-- / #menu -->
 <div id="container">
     <!-- #mainContent -->
     <div id="mainContent">
         <div class="inner_copy"></div>
         <div class="body-panel">
             <div class="top-left-corner"></div>
-            <div class="top-right-corner"></div>
+            <div class="top-right-corner">
+                <form id="searchBar" action="/search" method="post">
+                    <input type="text" placeholder="... something like nike" name="text" id="text">
+                    <button type="submit" class="searchButton" value="Search"/>
+                </form>
+            </div>
             <div class="inside">
                 <p>
                 <table>
@@ -41,7 +52,7 @@
                     </thead>
                     <tbody>
                     <!--<tr th:if="${items.empty}">-->
-                        <!--<td colspan="2"> No Books Available</td>-->
+                    <!--<td colspan="2"> No Books Available</td>-->
                     <!--</tr>-->
                     <tr th:each="item : ${items}">
                         <td><span th:text="${item.name}"> Name </span></td>
@@ -65,9 +76,9 @@
             <div class="fclear"></div>
         </div>
     </div>
-
     <!-- / #footer -->
 </div>
+<!-- / #menu -->
 <!-- / #container -->
 <div class="container">
     <table align="center" border="0" cellpadding="0" cellspacing="0" style="height:75px; width:560px">

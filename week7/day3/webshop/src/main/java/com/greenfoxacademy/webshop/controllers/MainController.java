@@ -6,8 +6,12 @@ import com.greenfoxacademy.webshop.pojo.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Controller
 public class MainController {
@@ -31,22 +35,22 @@ public class MainController {
     @GetMapping("/only-available")
     public String onlyAvailable(Model model) {
         List i = new FilteringImpl().available(items);
-        model.addAttribute("i", i);
-        return "onlyAvailable";
+        model.addAttribute("items", i);
+        return "webshop";
     }
 
     @GetMapping("/cheapest-first")
     public String cheapestFirst(Model model) {
         List i = new FilteringImpl().cheapestFirst(items);
-        model.addAttribute("i", i);
-        return "cheapestFirst";
+        model.addAttribute("items", i);
+        return "webshop";
     }
 
     @GetMapping("/contains-nike")
     public String containsNike(Model model) {
         List i = new FilteringImpl().containNike(items);
-        model.addAttribute("i", i);
-        return "containsNike";
+        model.addAttribute("items", i);
+        return "webshop";
     }
 
     @GetMapping("/average-stock")
@@ -59,8 +63,19 @@ public class MainController {
     @GetMapping("/most-expensive")
     public String mostExpensive(Model model) {
         List i = new FilteringImpl().expensiveFirst(items);
-        model.addAttribute("i", i);
-        return "mostExpensive";
+        model.addAttribute("items", i);
+        return "webshop";
+    }
+
+    @PostMapping("/search")
+    public String search(Model model, @RequestParam String text) {
+        model.addAttribute("items",
+                items.stream()
+                        .filter(a -> a.getDescription().toLowerCase().contains(text))
+                        .collect(toList())
+        );
+
+        return "webshop";
     }
 
 }
