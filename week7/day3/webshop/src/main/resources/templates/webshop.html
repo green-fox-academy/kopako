@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MY WEBSHOP</title>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- #header -->
+<div id="header">
+    <h1>MY WEBSHOP</h1>
+</div>
+<!-- / #header -->
+<!-- #menu -->
+<div id="menu">
+    <ul>
+        <li><a class="button_2"><span class="btn_lbg"><span class="btn_rbg">ONLY AVAILABLE</span></span></a></li>
+        <li><a class="button_2"><span class="btn_lbg"><span class="btn_rbg">CHEAPEST FIRST</span></span></a></li>
+        <li><a class="button_2"><span class="btn_lbg"><span class="btn_rbg">CONTAINS NIKE</span></span></a></li>
+        <li><a class="button_2"><span class="btn_lbg"><span class="btn_rbg">AVAREGE STOCK</span></span></a></li>
+        <li><a class="button_2"><span class="btn_lbg"><span class="btn_rbg">MOST EXPENSIVE AVAILABLE</span></span></a>
+        </li>
+    </ul>
+</div>
+<!-- / #menu -->
+<div id="container">
+    <!-- #mainContent -->
+    <div id="mainContent">
+        <div class="inner_copy"></div>
+        <div class="body-panel">
+            <div class="top-left-corner"></div>
+            <div class="top-right-corner"></div>
+            <div class="inside">
+                <p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th> Name</th>
+                        <th> Description</th>
+                        <th> Price</th>
+                        <th> Quantity of Stock</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<tr th:if="${items.empty}">-->
+                        <!--<td colspan="2"> No Books Available</td>-->
+                    <!--</tr>-->
+                    <tr th:each="item : ${items}">
+                        <td><span th:text="${item.name}"> Name </span></td>
+                        <td><span th:text="${item.description}"> Description </span></td>
+                        <td><span th:text="${item.price}"> Description </span></td>
+                        <td><span th:text="${item.quantityOfStock}"> Description </span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+            </div>
+            <div class="bottom-left-corner"></div>
+            <div class="bottom-right-corner"></div>
+        </div>
+    </div>
+    <!-- / #mainContent -->
+    <!-- #footer -->
+    <div id="footer">
+        <div class="fcenter">
+            <div class="fleft"></div>
+            <div class="fclear"></div>
+        </div>
+    </div>
+
+    <!-- / #footer -->
+</div>
+<!-- / #container -->
+<div class="container">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="height:75px; width:560px">
+        <tbody>
+        <tr>
+            <td style="height:75px; text-align:center; vertical-align:middle; width:560px">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
