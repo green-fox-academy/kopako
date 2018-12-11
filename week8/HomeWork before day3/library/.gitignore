@@ -1,8 +1,5 @@
-.DS_Store
 .gradle
-*.class
 /build/
-/bin/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -15,7 +12,6 @@
 .sts4-cache
 
 ### IntelliJ IDEA ###
-
 .idea
 *.iws
 *.iml
