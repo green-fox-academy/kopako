@@ -13,14 +13,17 @@
             <th>Balance</th>
             <th>Type</th>
             <th>Index</th>
+            <th>King</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="account : ${list}" th:object="${account}">
+        <tr th:each="account : ${list}" th:object="${account}"
+            th:style="*{king}? 'color:orange' ">
             <td th:text="*{name}"></td>
-            <td th:text="*{#numbers.formatDecimal(balance,0,2,'POINT')}"></td>
+            <td th:text="*{#numbers.formatDecimal(balance,1,2,'POINT')}"></td>
             <td th:text="*{animalType}"></td>
             <td th:text="${accountStat.index}"></td>
+            <td><span th:if="*{king}">Yes</span></td>
 
         </tr>
         </tbody>

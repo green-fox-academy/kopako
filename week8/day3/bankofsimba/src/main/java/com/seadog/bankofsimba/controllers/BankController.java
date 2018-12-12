@@ -13,7 +13,7 @@ public class BankController {
 
     @RequestMapping("/show")
     public String show(Model model){
-        model.addAttribute("account", new BankAccount("Simba", 2000, "lion"));
+        model.addAttribute("account", new BankAccount("Simba", 2000, "lion", true));
         return "index";
     }
 
@@ -26,11 +26,11 @@ public class BankController {
     @RequestMapping("/list")
     public String list(Model model) {
         List<BankAccount> list = new ArrayList<>();
-        list.add(new BankAccount("Pumba", 5, "warthog"));
-        list.add(new BankAccount("Timon", 2, "meerkat"));
-        list.add(new BankAccount("Mufasa", 9999999, "lion"));
-        list.add(new BankAccount("Scar", 666, "lion"));
-        list.add(new BankAccount("Azizi", 0, "hyenas"));
+        list.add(new BankAccount("Pumba", 5, "warthog", false));
+        list.add(new BankAccount("Timon", 2, "meerkat", false));
+        list.add(new BankAccount("Mufasa", 9999999, "lion", true));
+        list.add(new BankAccount("Scar", 666, "lion", false));
+        list.add(new BankAccount("Azizi", 0, "hyenas", false));
         model.addAttribute("list", list);
         return "list";
     }
