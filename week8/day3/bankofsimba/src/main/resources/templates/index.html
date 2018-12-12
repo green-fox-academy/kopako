@@ -9,7 +9,7 @@
 
 <div th:object="${account}">
     <p th:text="|Account name:       *{name}|"></p>
-    <p th:text="|Account balance:    *{balance}|"></p>
+    <p th:text="|Account balance:    *{#numbers.formatDecimal(balance,0,2,'POINT')} Zebra|"></p>
     <p th:text="|Account type:       *{animalType}|"></p>
 </div>
 
