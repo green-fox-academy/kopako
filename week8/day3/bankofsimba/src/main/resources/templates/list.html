@@ -28,10 +28,14 @@
 
             <td><span th:if="*{king}">King</span></td>
 
-            <td th:switch="*{good}">
-            <p th:case==true>Good one</p>
-            <p th:case==false>Bad guy</p>
-            </td>
+            <td th:text="*{good}? 'Good one' : 'Bad guy'"></td>
+
+
+
+            <!--<td th:switch="*{good}">-->
+            <!--<p th:case==true>Good one</p>-->
+            <!--<p th:case==false>Bad guy</p>-->
+            <!--</td>-->
 
 
         </tr>
