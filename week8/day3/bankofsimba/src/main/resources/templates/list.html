@@ -16,12 +16,12 @@
             <th>Index</th>
             <th>King</th>
             <th>Good or Bad</th>
-
         </tr>
         </thead>
         <tbody>
         <tr th:each="account : ${list}" th:object="${account}"
             th:style="*{king}? 'color:orange' ">
+
             <td th:text="*{name}"></td>
             <td th:text="*{#numbers.formatDecimal(balance,1,2,'POINT')}"></td>
             <td th:text="*{animalType}"></td>
@@ -30,9 +30,6 @@
             <td><span th:if="*{king}">King</span></td>
 
             <td th:text="*{good}? 'Good one' : 'Bad guy'"></td>
-
-
-
             <!--<td th:switch="*{good}">-->
             <!--<p th:case==true>Good one</p>-->
             <!--<p th:case==false>Bad guy</p>-->
@@ -43,6 +40,13 @@
         </tbody>
         </tr>
     </table>
+    <div>
+
+                <form th:action="@{/raisebyname}" th:method="POST">
+                    <input type="text" name="account" id="account"/>
+                    <input type="submit" value="increase"/>
+                </form>
+    </div>
 </div>
 </body>
 </html>

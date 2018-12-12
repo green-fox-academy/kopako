@@ -18,6 +18,14 @@ public class BankAccount {
         this.good = goodOrBad;
     }
 
+    public void raise(){
+        if (this.king) {
+            this.balance += 100;
+        } else {
+            this.balance += 10;
+        }
+    }
+
     public String getName() {
         return name;
     }
