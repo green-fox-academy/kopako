@@ -12,6 +12,7 @@
             <th>Name</th>
             <th>Balance</th>
             <th>Type</th>
+            <th>Index</th>
         </tr>
         </thead>
         <tbody>
@@ -19,6 +20,8 @@
             <td th:text="*{name}"></td>
             <td th:text="*{#numbers.formatDecimal(balance,0,2,'POINT')}"></td>
             <td th:text="*{animalType}"></td>
+            <td th:text="${accountStat.index}"></td>
+
         </tr>
         </tbody>
         </tr>
