@@ -14,6 +14,8 @@
             <th>Type</th>
             <th>Index</th>
             <th>King</th>
+            <th>Good or Bad</th>
+
         </tr>
         </thead>
         <tbody>
@@ -23,7 +25,14 @@
             <td th:text="*{#numbers.formatDecimal(balance,1,2,'POINT')}"></td>
             <td th:text="*{animalType}"></td>
             <td th:text="${accountStat.index}"></td>
-            <td><span th:if="*{king}">Yes</span></td>
+
+            <td><span th:if="*{king}">King</span></td>
+
+            <td th:switch="*{good}">
+            <p th:case==true>Good one</p>
+            <p th:case==false>Bad guy</p>
+            </td>
+
 
         </tr>
         </tbody>
