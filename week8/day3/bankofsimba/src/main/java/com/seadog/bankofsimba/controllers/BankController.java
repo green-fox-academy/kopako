@@ -35,13 +35,14 @@ public class BankController {
     }
 
     @RequestMapping("/list")
-    public String list(Model model) {
+    public String list(Model model, @ModelAttribute("acc") BankAccount acc) {
         model.addAttribute("list", list);
+        model.addAttribute("acc", acc);
         return "list";
     }
 
     @PostMapping("/raisebyname")
-    public  String raiseByName(@ModelAttribute("account") String account) {
+    public String raiseByName(@ModelAttribute("account") String account) {
         list.stream().forEach(a -> {
                     if (a.getName().toLowerCase().equals(account.toLowerCase())) {
                         a.raise();
@@ -52,10 +53,16 @@ public class BankController {
     }
 
     @PostMapping("/raisebyindex")
-    public  String raiseByIndex(@ModelAttribute("account") int account) {
-        if (account < list.size()){
+    public String raiseByIndex(@ModelAttribute("account") int account) {
+        if (account < list.size()) {
             list.get(account).raise();
         }
+        return "redirect:/list";
+    }
+
+    @PostMapping("/add")
+    public String add(@ModelAttribute("acc") BankAccount acc) {
+        list.add(acc);
         return "redirect:/list";
     }
 }
