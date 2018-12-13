@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful main page</title>
+</head>
+<body>
+
+<div>
+
+<a href="/useful/colorful">Colorful page</a>
+</div>
+
+<div>
+    <form action="/useful/email" method="GET">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email">
+        <input type="submit" value="check">
+    </form>
+</div>
+<!--<form th:action="@{/useful/email}">
+    <input type="text" th:object="${email}">
+    <input type="submit" value="validate">
+</form>-->
+
+<!--
+<form th:action="@{/useful/caesar}">
+    <input type="text" th:object="${text}">
+    <input type="number" th:object="${number}" >
+    <input type="submit" value="validate">
+</form>
+-->
+
+
+<div>
+    <form action="/useful/caesar" method="GET">
+        <label for="text">Text</label>
+        <input type="text" id="text" name="text">
+        <input type="number" id="number" name="number">
+        <input type="submit" value="encrypt">
+    </form>
+
+
+</div>
+
+</body>
+</html>

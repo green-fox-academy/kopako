@@ -15,7 +15,7 @@ public class UsefulController {
 
     @GetMapping("/useful")
     public String useful() {
-        return null;
+        return "useful";
     }
 
     @GetMapping("/useful/colorful")
@@ -35,8 +35,10 @@ public class UsefulController {
     }
 
     @GetMapping("/useful/caesar")
-    public String caesar(Model model, @RequestParam String text, @RequestParam int number) {
-        model.addAttribute("text", utilityService.caesar(text, number));
+    public String caesar(Model model, @RequestParam String text,
+                         @RequestParam int number) {
+        model.addAttribute("text", utilityService.caesar(text,
+                number));
         return "caesar";
     }
 }
