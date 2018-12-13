@@ -65,4 +65,9 @@ public class BankController {
         list.add(acc);
         return "redirect:/list";
     }
+
+    @PostMapping("/raise")
+    public String raise(){
+        return "redirect:/list";
+    }
 }

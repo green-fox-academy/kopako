@@ -17,6 +17,7 @@
                 <th>Index</th>
                 <th>King</th>
                 <th>Good or Bad</th>
+                <th>Increase</th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +32,11 @@
                 <td><span th:if="*{king}">King</span></td>
 
                 <td th:text="*{good}? 'Good one' : 'Bad guy'"></td>
+                <td>
+                    <form th:action="@{/raise}" th:method="POST">
+                        <input type="submit" value="increase"/>
+                    </form>
+                </td>
                 <!--<td th:switch="*{good}">-->
                 <!--<p th:case==true>Good one</p>-->
                 <!--<p th:case==false>Bad guy</p>-->
