@@ -7,18 +7,17 @@
 <body th:object="${fox}">
 <lu>
     <li>
-<a href="#" >Information</a>
+        <a href="#">Information</a>
     </li>
 </lu>
 <img src="/greenfox.png"/>
-<p th:text="|This is *{name}|"></p>
+<p th:text="|This is *{name} and eat *{food}, drinks *{drink}|"></p>
 
 <h2>Known tricks</h2>
 
-<lu>
-    <li>write HTML</li>
-    <li>code in java</li>
-</lu>
+<ul th:each="trick : *{tricks}"  >
+    <li th:text="${trick}"></li>
+</ul>
 
 </body>
 </html>

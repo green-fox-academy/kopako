@@ -41,6 +41,11 @@ public class BankController {
         return "list";
     }
 
+    @PostMapping("/raise")
+    public String raise(){
+        return "redirect:/list";
+    }
+
     @PostMapping("/raisebyname")
     public String raiseByName(@ModelAttribute("account") String account) {
         list.stream().forEach(a -> {
@@ -63,11 +68,6 @@ public class BankController {
     @PostMapping("/add")
     public String add(@ModelAttribute("acc") BankAccount acc) {
         list.add(acc);
-        return "redirect:/list";
-    }
-
-    @PostMapping("/raise")
-    public String raise(){
         return "redirect:/list";
     }
 }
