@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1>Main page</h1>
+<br>
+<div>
+    <ul th:each="student : ${studentService.findAll()}">
+
+     <li th:text="${studentStat.count}">
+     </li>   <li th:text="${student}"></li>
+
+
+    </ul>
+</div>
+<div>
+    <form action="/gfa/add" method="Get">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+        </div>
+        <input type="submit" value="ADD">
+    </form>
+</div>
+
+</body>
+</html>
