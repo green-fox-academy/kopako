@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
 </head>
-<body>
+<body th:object="${fox}">
 <lu>
     <li>
 <a href="#" >Information</a>
     </li>
 </lu>
 <img src="/greenfox.png"/>
-<p>This is mr. Fox. Currently living on pizza and lemocade. He know 2 tricks</p>
+<p th:text="|This is *{name}|"></p>
 
 <h2>Known tricks</h2>
 
