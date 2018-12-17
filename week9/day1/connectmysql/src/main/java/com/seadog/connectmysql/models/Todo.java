@@ -1,6 +1,7 @@
 package com.seadog.connectmysql.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Todo {
@@ -10,8 +11,10 @@ public class Todo {
     private String title;
     private boolean urgent;
     private boolean done;
+    private Date dateOfCreation;
 
     public Todo() {
+        this.dateOfCreation = new Date();
     }
 
     public Todo(String title, boolean urgent, boolean done) {
@@ -54,5 +57,13 @@ public class Todo {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public Date getDateOfCreation() {
+        return dateOfCreation;
+    }
+
+    public void setDateOfCreation(Date dateOfCreation) {
+        this.dateOfCreation = dateOfCreation;
     }
 }
