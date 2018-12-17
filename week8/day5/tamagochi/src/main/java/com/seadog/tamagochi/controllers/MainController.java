@@ -28,7 +28,6 @@ public class MainController {
 
     @GetMapping("/login")
     public String login(@ModelAttribute("fox") Fox fox, Model model) {
-
         return "login";
     }
 

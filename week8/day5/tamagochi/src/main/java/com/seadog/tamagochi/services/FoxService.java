@@ -20,16 +20,16 @@ public class FoxService {
         return foxes;
     }
 
-    public Fox getFoxByName(String name) {
-        return foxes.stream().
-        filter(p -> p.getName().toLowerCase().equals(name.toLowerCase())).
-                findAny().orElse(null);
-    }
-
     public void addIfValid(Fox fox) {
         if (fox!=null && !this.nameExist(fox.getName())){
             foxes.add(fox);
         }
+    }
+
+    public Fox getFoxByName(String name) {
+        return foxes.stream().
+                filter(p -> p.getName().toLowerCase().equals(name.toLowerCase())).
+                findAny().orElse(null);
     }
 
     public boolean nameExist(Fox fox) {

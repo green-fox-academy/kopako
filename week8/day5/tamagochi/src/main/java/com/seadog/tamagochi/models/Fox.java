@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fox {
-    //name, list of tricks, food and drink
     String name;
     List<String> tricks;
     String food;
