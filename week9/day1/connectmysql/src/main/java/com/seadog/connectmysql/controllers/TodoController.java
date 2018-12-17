@@ -38,6 +38,9 @@ public class TodoController {
         return "redirect:/";
     }
 
-
-
+    @PostMapping("/{id}/delete")
+    public String deleteById(@ModelAttribute("id") long id) {
+        todoRepository.deleteById(id);
+        return "redirect:/";
+    }
 }

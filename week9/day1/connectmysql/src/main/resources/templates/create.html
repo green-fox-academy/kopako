@@ -8,8 +8,8 @@
 <div>
     <form action="#" th:action="@{/create}" th:object="${todo}" method="post">
         <input type="text" th:field="*{title}">
-        <input type="checkbox" th:field="*{urgent}" placeholder="urgent">
-        <input type="checkbox" th:field="*{done}" placeholder="done">
+        Urgent<input id="urgent" placeholder="urgent" th:field="*{urgent}" type="checkbox">
+        Done<input id="done" type="checkbox" th:field="*{done}" placeholder="done">
         <input type="submit" value="create">
     </form>
 </div>

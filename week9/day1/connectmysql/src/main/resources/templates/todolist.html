@@ -11,7 +11,10 @@
 <body>
 <h1>Todos for today</h1>
 <a href="/list?isActive=true">Active</a>
-<div>
+<div name="create">
+    <a href="/create">New Todo</a>
+</div>
+<div name="table">
     <table class="pure-table">
         <thead>
         <tr>
@@ -19,6 +22,7 @@
             <th>Action</th>
             <th>Done</th>
             <th>Urgent</th>
+            <th>Delete</th>
         </tr>
         </thead>
 
@@ -28,15 +32,17 @@
             <td th:text="*{title}"></td>
             <td th:text="*{done}"></td>
             <td th:text="*{urgent}"></td>
+            <td>
+                <form action="#" th:action="@{'/'+ ${todo.id}+'/delete'}" method="post">
+                    <input type="submit" value="delete">
+                </form>
+            </td>
         </tr>
         </tbody>
 
         </tr>
     </table>
 
-    <div>
-        <a href="/create">New Todo</a>
-    </div>
 </div>
 </body>
 </html>
