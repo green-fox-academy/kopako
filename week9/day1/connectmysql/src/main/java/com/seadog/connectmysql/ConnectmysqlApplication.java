@@ -1,5 +1,6 @@
 package com.seadog.connectmysql;
 
+import com.seadog.connectmysql.models.Todo;
 import com.seadog.connectmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,9 +23,8 @@ public class ConnectmysqlApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        for (int i = 0; i < 5; i++) {
-            todoRepository.save(new com.seadog.connectmysql.models.Todo("Title #" + i));
-        }
+        Todo i = todoRepository.findByDone(false).stream().findFirst().get();
+        i.setDone(true);
     }
 
 

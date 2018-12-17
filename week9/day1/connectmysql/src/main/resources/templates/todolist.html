@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>TODO List</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="style.css">
+
 </head>
 <body>
 <h1>Todos for today</h1>
+<a href="/list?isActive=true">Active</a>
+<div>
+    <table class="pure-table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Action</th>
+            <th>Done</th>
+            <th>Urgent</th>
+        </tr>
+        </thead>
 
-<ul th:each="todo : ${todos}" th:object="${todo}">
-    <li th:text="|*{title}|"></li>
-</ul>
+        <tbody>
+        <tr th:each="todo : ${todos}" th:object="${todo}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{title}"></td>
+            <td th:text="*{done}"></td>
+            <td th:text="*{urgent}"></td>
+        </tr>
+        </tbody>
+
+        </tr>
+    </table>
+</div>
 </body>
 </html>
