@@ -23,6 +23,7 @@
             <th>Done</th>
             <th>Urgent</th>
             <th>Delete</th>
+            <th>Edit</th>
         </tr>
         </thead>
 
@@ -35,6 +36,10 @@
             <td>
                 <form action="#" th:action="@{'/'+ ${todo.id}+'/delete'}" method="post">
                     <input type="submit" value="delete">
+                </form>
+            </td><td>
+                <form action="#" th:action="@{'/'+ ${todo.id}+'/edit'}" method="get">
+                    <input type="submit" value="edit">
                 </form>
             </td>
         </tr>
