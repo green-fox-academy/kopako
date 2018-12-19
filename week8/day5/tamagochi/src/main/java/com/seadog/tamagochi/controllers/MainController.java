@@ -39,4 +39,10 @@ public class MainController {
             return "redirect:/?name=" + name;
         } else return "redirect:/login";
     }
+
+    @GetMapping("/nutritionStore")
+    public String nutritionStore(@ModelAttribute String name) {
+        return "nutritionstore";
+    }
+
 }
