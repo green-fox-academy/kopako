@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap4-good-news.css">
+
+</head>
+<body>
+<div>
+    <a href="#" th:href="@{/submit}">Submit new post</a>
+</div>
+<div align="center">
+    <h2>Trending post</h2>
+
+    <table class="table">
+        <tbody>
+        <tr th:each="post : ${posts}" th:object="${post}">
+            <td th:text="*{id}" hidden="hidden"></td>
+            <td th:text="*{rating}"></td>
+
+            <td>
+                <form action="#" th:action="@{'/'+ ${post.id}+'/like'}" method="get">
+                    <input type="submit" value="+">
+                </form>
+            </td>
+
+            <td>
+                <form action="#" th:action="@{'/'+ ${post.id}+'/dislike'}" method="get">
+                    <input type="submit" value="-">
+                </form>
+            </td>
+
+            <td>
+                <a href="#" th:href="*{url}" th:text="*{title}"></a></td>
+            </td>
+            <td th:text="*{created}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#" th:href="@{/all}">Show all</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap4-good-news.css">
+
+</head>
+<body>
+<div align="center">
+    <h1 class="align-text-top">Submit a new post</h1>
+
+    <div>
+
+        <form action="#" th:action="@{/submit}" th:object="${post}" method="post">
+            <input type="text" placeholder="title" th:field="*{title}" required>
+            <input type="url" th:field="*{url}" placeholder="url" required>
+            <input type="submit" value="create">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
