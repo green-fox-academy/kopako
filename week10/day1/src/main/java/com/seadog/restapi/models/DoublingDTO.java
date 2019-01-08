@@ -1,11 +1,19 @@
 package com.seadog.restapi.models;
 
-public class Doubling {
+/**
+ * Automatically multiplying received on 2 and stores it to result
+ */
+public class DoublingDTO {
     private int received;
     private int result;
 
 
-    public Doubling() {
+    public DoublingDTO() {
+    }
+
+    public DoublingDTO(int received) {
+        this.received = received;
+        this.result = received * 2;
     }
 
     public void setReceived(int received) {

@@ -1,6 +1,7 @@
 package com.seadog.restapi.controllers;
 
 import com.seadog.restapi.models.*;
+import com.seadog.restapi.services.UntilService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,15 +15,13 @@ public class MainController {
 
     @GetMapping("/doubling")
     @ResponseBody
-    public Doubling doublingForm(@RequestParam int input) {
-        Doubling doubling = new Doubling();
-        doubling.setReceived(input);
-        return doubling;
+    public DoublingDTO doubling(@RequestParam int input) {
+        return new DoublingDTO(input);
     }
 
     @GetMapping("/greeter")
     @ResponseBody
-    public Greeter doublingForm(@RequestParam String name, @RequestParam String title) {
+    public Greeter greeter(@RequestParam String name, @RequestParam String title) {
         return new Greeter(name, title);
     }
 
@@ -34,34 +33,22 @@ public class MainController {
 
     @PostMapping("/dountil/{action}")
     @ResponseBody
-    public Until until(@PathVariable String action, @RequestParam(required = false) Integer until) {
-        Until returnResult = new Until();
-        if (until == null) {
-            throw new UnsupportedOperationException("Please provide a number!");
-        }
-
-        if (action.toLowerCase().equals("sum")) {
-            returnResult.setResult(Until.sum(until));
-            return returnResult;
-        } else if (action.toLowerCase().equals("factor")) {
-            returnResult.setResult(Until.factorial(until));
-            return returnResult;
-        }
-        return returnResult;
+    public UntilOutput until(@PathVariable String action, @RequestBody(required = false) UntilInput until) {
+        return new UntilOutput(UntilService.until(action, until.getUntil()));
     }
 
     @PostMapping("/arrays")
     @ResponseBody
     public Object arrays(@RequestBody ReceivingArray receivingArray) {
-        int res=0;
+        int res = 0;
         if (receivingArray.getWhat().equals("sum")) {
             for (int number :
                     receivingArray.getNumbers()) {
-                res+=number;
+                res += number;
             }
             return new ResultInteger(res);
         } else if (receivingArray.getWhat().equals("multiply")) {
-            res=1;
+            res = 1;
             for (int number :
                     receivingArray.getNumbers()) {
                 res *= number;
